@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  enginframe:
+    container_name: efportal-nisp
+    hostname: efportal-nisp
+    image: nispgmbh/ef-dcv-container:efportal
+    expose:
+      - "${EFP_PORT}"
+    ports:
+      - "${EFP_PORT}:8443/tcp"
+    restart: 'always'
+    volumes:
+      - shared-volume:/shared-volume
+      - ./conf/license.ef:/opt/container-tools/license.ef
+      - ${SSSD_CONF_FILE}:/etc/sssd/sssd.conf
+      - ${SLURM_BIN_DIR}/srun:/usr/bin/srun
+      - ${SLURM_BIN_DIR}/sbatch:/usr/bin/sbatch
+      - ${SLURM_BIN_DIR}/squeue:/usr/bin/squeue
+      - ${SLURM_BIN_DIR}/scontrol:/usr/bin/scontrol
+      - ${SLURM_BIN_DIR}/slurmd:/usr/bin/slurmd
+      - ${SLURM_BIN_DIR}/sinfo:/usr/bin/sinfo
+      - ${SLURM_CONF_DIR}/slurm.conf:/etc/slurm/slurm.conf
+      - ${SLURM_CONF_DIR}/cgroup.conf:/etc/slurm/cgroup.conf
+      - ${SLURM_MUNGE_KEY}:/etc/munge/munge.key
+      - ${SLURM_MUNGE_SOCKET_DIR}=/var/run/munge
+      - enginframe_data:/opt/nisp
+    environment:
+      - PATH=/usr/bin/slurm:$PATH
+    env_file:
+      - .env
+    networks:
+      - network-nisp
+    command: ["/bin/bash", "/opt/container-tools/enginframe_init_script.sh"]
+
+volumes:
+  shared-volume:
+  enginframe_data:
+  mysql_data:
+networks:
+  network-nisp:
+    driver: bridge
