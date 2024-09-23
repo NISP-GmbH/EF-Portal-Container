@@ -12,7 +12,7 @@ services:
     restart: 'always'
     volumes:
       - shared-volume:/shared-volume
-      - ./conf/license.ef:/opt/container-tools/license.ef
+      - ${EFP_LICENSE_FILE}:/opt/container-tools/license.ef
       - ${SSSD_CONF_FILE}:/etc/sssd/sssd.conf
       - ${SLURM_BIN_DIR}/srun:/usr/bin/srun
       - ${SLURM_BIN_DIR}/sbatch:/usr/bin/sbatch

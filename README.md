@@ -2,9 +2,15 @@
 
 ## Basic configuration
 
-**Note:** Do not edit docker-compose.yml unless you know what you are doing.
+**Note:** Do not edit docker-compose.yml unless you know what you are doing. You have to only edit .env file.
 
-You have to only edit .env file. Usually you just need to change the FQDN domain to access the EF PORTAL and set a port that is not being used in your host. If you do not have a domain, you can leave the variable with default config and access using Host IP.
+Please set where is the current EF Portal license:
+
+```bash
+EFP_LICENSE_FILE=./conf/license.ef
+```
+
+Usually you just need to change the FQDN domain to access the EF PORTAL and set a port that is not being used in your host. If you do not have a domain, you can leave the variable with default config and access using Host IP.
 
 ```bash 
 EFP_FQDN_DOMAIN=mydevsubdomain.mydomain.com
