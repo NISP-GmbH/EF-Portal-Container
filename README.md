@@ -39,6 +39,18 @@ SSSD_CONF_FILE=/etc/sssd/sssd.conf
 docker compose up -d
 ```
 
+## How to verify
+
+```bash
+docker ps
+```
+
+Which will show the running container similar to: 
+
+```bash
+9fac0c022faf   nispgmbh/ef-dcv-container:efportal   "/bin/bash /opt/cont…"   11 seconds ago   Up 10 seconds   8553/tcp, 0.0.0.0:8553->8443/tcp, :::8553->8443/tcp   efportal-nisp
+```
+
 ## How to stop
 
 ```bash
