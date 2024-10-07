@@ -1,46 +1,85 @@
 # EnginFrame Portal
 
-## Basic configuration
+Welcome to our EF Portal container solution!
 
-**Note:** Do not edit docker-compose.yml unless you know what you are doing. You have to only edit .env file.
+- Do you want to easily test EF Portal?
+- And how about load EF Portal with your SSSD service just providing the sssd.conf?
+- Do you want to run EF Portal in the same host of your current old EF solution without conflict?
+- Do you want to easily load SLURM and LSF services from the host inside of the EF Portal container?
 
-Please set where is the current EF Portal license:
+If you said at least one yes, you are in the right place!
 
-```bash
-EFP_LICENSE_FILE=./conf/license.ef
-```
+With a very short, explained and descomplicated wizard you will generate your docker-compose.yml and .env files to easily startup the container that will support your requirements.
 
-Usually you just need to change the FQDN domain to access the EF PORTAL and set a port that is not being used in your host. If you do not have a domain, you can leave the variable with default config and access using Host IP.
+And if you just need to start EP Portal without answer anything, the wizard will offer that option to you.
 
-```bash 
-EFP_FQDN_DOMAIN=mydevsubdomain.mydomain.com
-EFP_PORT=8553
-```
-If you have different Slurm or munge key path configuration, you also need to configure:
+If you have any questions, please open an git issue or send an e-mail to efpsupport@ni-sp.com. And if you do not have a license demo, you can ask in the same e-mail.
 
-```bash
-SLURM_SERVICE_ENABLED=false
-SLURM_BIN_DIR=/usr/bin
-SLURM_CONF_DIR=/etc/slurm
-SLURM_MUNGE_KEY=/etc/munge/munge.key
-SLURM_MUNGE_SOCKET_DIR=/var/run/munge
-```
+# How to start the wizard?
 
-If you also want to run SSSD service with your sssd.conf file, please replace "false" with "true" and check the correct sssd.conf path.
+## Requirements
 
-```bash
-SSSD_SERVICE_ENABLED=false
-SSSD_CONF_FILE=/etc/sssd/sssd.conf
-```
+Is very simple, but first you need to setup docker in your server. If you need some help, we did some scripts to help you. Check them inside of "tools/" directory.
 
-## How to run
+You can setup docker in any Ubuntu server version and all RedHat based linux distros (EL8 and EL9), like CentOS, AlmaLinux, Rocky Linux etc.
+
+Note: As CentOS 6 and 7 reached the EOL, we do not recommend to use our solution there. Just to you know, if you really needed to use and you know what you are doing, our solution will work fine!
+
+Take a good bottle of water, setup docker and continue to the next step. ;)
+
+## EF Portal
+
+Now that you have docker installed with docker compose plugin, you are about one minute to have EF Portal!
+
+Execute our script, read the recommendations and in the end you will have EP Portal running under container. Easy easy! 
 
 ```bash
+bash wizard.sh
+```
+Congratulations! Now you are ready to start EP Portal under container and access the web dashboard!
+Ah, and do not forget to hydrate! ;)
+
+# What are the advantages about running EF Portal in a docker?
+* Will be isolated from your Host OS, so you can run even inside of your current old EF instance without cause any issues.
+* You can easily update EF Portal just stopping the instance, doing a docker image pull and starting EF Portal again.
+* You can customize bash scripts inside of EF Portal and never lose them after updates; And all customized files will be documented under docker-compose.yml file, so you will never forget about what was done 2 years ago.
+* You can move EF Portal very to old operating systems (if you really need) or very unusual linux distributions, they just need to support docker.
+* You can limit the hardware resources (CPU, Memory etc) to EF Portal.
+
+## Frequent Asked Questions
+* How can I access the EF Portal?
+Go to https://YOURIP:PORT and use the port, user and password that were configured in the .env file. The IP can be localhost or your external valid IP.
+
+* "Access Failure: User not authorized. Contact EF Portal Administrator."
+You forgot to add your license.ef in the same directory of docker-compose.yml file. If you do not have one, please ask the license for efpsupport@ni-sp.com.
+
+* How to boot the container?
+```bash
+# execute in the same directory of docker-compose.yml
 docker compose up -d
 ```
-
-## How to stop
-
+* How to stop the container?
 ```bash
+# execute in the same directory of docker-compose.yml
 docker compose down
 ```
+* How to remove the container?
+```bash
+docker rm container-id
+```
+* How to get the container ids?
+```bash
+docker ps -a
+```
+* Is it possible to change any answer that I did during the wizard?
+We always recommend to run the wizard again, so the script can validate all answers. But if you know what you are doing, you can edit the .env file.
+* I did not find the .env file!
+The .env file is a hidden file. You can see with the command "ls -la", using terminal, or configuring your GUI file explorer to show hidden files. You can use any text editor to change the file.
+* Can I customize the docker-compose.yml file?
+We do not recommend that unless you really know what you are doing!
+* Can I use Podman instead of Docker?
+Is not officially supported by us, but we always try to maintain our docker-compose.yml and .env files compatible with Podman.
+* Why the wizard ask to mount external directories (sessions/spoolers)?
+Because in big  environments those directories can quickly grow the size, so we must guarantee that you will offer enough space to them, avoiding fill all the space of the host where the docker is running.
+* How EF Portal load the Host SLURM service?
+It will map the main Slurm/Munge configuration files and all the binaries inside of the container, so EF Portal can use the service.
