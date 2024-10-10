@@ -58,7 +58,29 @@ You forgot to add your license.ef in the same directory of docker-compose.yml fi
 # execute in the same directory of docker-compose.yml
 docker compose up -d
 ```
+<<<<<<< HEAD
 * How to stop the container?
+=======
+
+## How to verify
+
+```bash
+docker ps
+```
+
+Which will show the running container similar to: 
+
+```bash
+9fac0c022faf   nispgmbh/ef-dcv-container:efportal   "/bin/bash /opt/cont…"   11 seconds ago   Up 10 seconds   8553/tcp, 0.0.0.0:8553->8443/tcp, :::8553->8443/tcp   efportal-nisp
+```
+
+You can also log into the EF Portal container with this command: 
+
+```bash
+docker exec -it efportal-nisp  bash
+```
+
+## How to stop
 ```bash
 # execute in the same directory of docker-compose.yml
 docker compose down
