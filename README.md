@@ -49,31 +49,31 @@ Ah, and do not forget to hydrate! ;)
 * You can limit the hardware resources (CPU, Memory etc) to EF Portal.
 
 ## Frequent Asked Questions
-* How can I access the EF Portal?
+* __How can I access the EF Portal?__
 Go to https://YOURIP:PORT and use the port, user and password that were configured in the .env file. The IP can be localhost or your external valid IP.
 
-* "Access Failure: User not authorized. Contact EF Portal Administrator."
+* __"Access Failure: User not authorized. Contact EF Portal Administrator."__
 You forgot to add your license.ef in the same directory of docker-compose.yml file. If you do not have one, please ask your demo license for efpsupport@ni-sp.com.
 
-* How to boot the container?
+* __How to boot the container?__
 ```bash
 # execute in the same directory of docker-compose.yml
 docker compose up -d
 ```
 
-* How to stop the container?
+* __How to stop the container?__
 ```bash
 # execute in the same directory of docker-compose.yml
 docker compose down
 ```
 
-* How to remove the container?
+* __How to remove the container?__
 
 ```bash
 docker rm container-id
 ```
 
-* How to get container id?
+* __How to get container id?__
 
 First execute
 ```bash
@@ -89,26 +89,31 @@ which will show the running container similar to:
 The container id is the first column.
 
 
-* How to enter in container command line?
+* __How to enter in container command line?__
 
 ```bash
 docker exec -it container-id  /bin/bash
 ```
 
-* How to show container logs?
+* __How to show container logs?__
 ```bash
 docker logs container-id
 ```
 
-* Is it possible to change any answer that I did during the wizard?
+* __Is it possible to change any answer that I did during the wizard?__
 We always recommend to run the wizard again, so the script can validate all answers. But if you know what you are doing, you can edit the .env file.
-* I did not find the .env file!
+
+* __I did not find the .env file!__
 The .env file is a hidden file. You can see with the command "ls -la", using terminal, or configuring your GUI file explorer to show hidden files. You can use any text editor to change the file.
-* Can I customize the docker-compose.yml file?
+
+* __Can I customize the docker-compose.yml file?__
 We do not recommend that unless you really know what you are doing!
-* Can I use Podman instead of Docker?
+
+* __Can I use Podman instead of Docker?__
 Is not officially supported by us, but we always try to maintain our docker-compose.yml and .env files compatible with Podman.
-* Why the wizard ask to mount external directories (sessions/spoolers)?
+
+* __Why the wizard ask to mount external directories (sessions/spoolers)?__
 Because in big  environments those directories can quickly grow the size, so we must guarantee that you will offer enough space to them, avoiding fill all the space of the host where the docker is running.
-* How EF Portal load the Host SLURM service?
+
+* __How EF Portal load the Host SLURM service?__
 It will map the main Slurm/Munge configuration files and all the binaries inside of the container, so EF Portal can use the service.
