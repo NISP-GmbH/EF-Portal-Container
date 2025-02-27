@@ -5,7 +5,7 @@ Welcome to our EF Portal container solution!
 - Do you want to easily test EF Portal?
 - And how about load EF Portal with your SSSD service just providing the sssd.conf?
 - Do you want to run EF Portal in the same host of your current old EF solution without conflict?
-- Do you want to easily load SLURM and LSF services from the host inside of the EF Portal container?
+- Do you want to easily load SLURM from the host inside of the EF Portal container?
 
 If you said at least one yes, you are in the right place!
 
@@ -103,5 +103,5 @@ We do not recommend that unless you really know what you are doing!
 Is not officially supported by us, but we always try to maintain our docker-compose.yml and .env files compatible with Podman.
 * Why the wizard ask to mount external directories (sessions/spoolers)?
 Because in big  environments those directories can quickly grow the size, so we must guarantee that you will offer enough space to them, avoiding fill all the space of the host where the docker is running.
-* How EF Portal load the Host SLURM service?
-It will map the main Slurm/Munge configuration files and all the binaries inside of the container, so EF Portal can use the service.
+* Is it possible to EF Portal load slurm binaries from the server?
+Yes. Edit the .env and set SLURM_SERVICE_ENABLED=true and then check if you need to change other SLURM variables. **Important:** You need to have same glibc version in the host, or is possible that those binaries can not run correctly inside of the container.
