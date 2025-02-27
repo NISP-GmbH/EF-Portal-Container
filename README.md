@@ -106,6 +106,9 @@ We always recommend to run the wizard again, so the script can validate all answ
 * __I did not find the .env file!__
 The .env file is a hidden file. You can see with the command "ls -la", using terminal, or configuring your GUI file explorer to show hidden files. You can use any text editor to change the file.
 
+* __How to EF Portal load SLURM and Munge binaries from the server?__
+Yes. Edit the .env and set SLURM_SERVICE_ENABLED=true and then check if you need to change other SLURM variables. **Important:** You need to have same glibc version in the host, or is possible that those binaries can not run correctly inside of the container.
+
 * __Can I customize the docker-compose.yml file?__
 We do not recommend that unless you really know what you are doing!
 
@@ -114,5 +117,3 @@ Is not officially supported by us, but we always try to maintain our docker-comp
 
 * __Why the wizard ask to mount external directories (sessions/spoolers)?__
 Because in big  environments those directories can quickly grow the size, so we must guarantee that you will offer enough space to them, avoiding fill all the space of the host where the docker is running.
-* Is it possible to EF Portal load slurm binaries from the server?
-Yes. Edit the .env and set SLURM_SERVICE_ENABLED=true and then check if you need to change other SLURM variables. **Important:** You need to have same glibc version in the host, or is possible that those binaries can not run correctly inside of the container.
