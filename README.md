@@ -114,11 +114,5 @@ Is not officially supported by us, but we always try to maintain our docker-comp
 
 * __Why the wizard ask to mount external directories (sessions/spoolers)?__
 Because in big  environments those directories can quickly grow the size, so we must guarantee that you will offer enough space to them, avoiding fill all the space of the host where the docker is running.
-<<<<<<< HEAD
 * Is it possible to EF Portal load slurm binaries from the server?
 Yes. Edit the .env and set SLURM_SERVICE_ENABLED=true and then check if you need to change other SLURM variables. **Important:** You need to have same glibc version in the host, or is possible that those binaries can not run correctly inside of the container.
-=======
-
-* __How EF Portal load the Host SLURM service?__
-It will map the main Slurm/Munge configuration files and all the binaries inside of the container, so EF Portal can use the service.
->>>>>>> 8501e1b2e1a4c90ac8896736098c4d05e0420b18
