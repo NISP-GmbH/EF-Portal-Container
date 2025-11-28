@@ -38,5 +38,3 @@ Tips:
 - Docker service installed
 - RedHat/CentOS/Rocky/Alma Linux 8/9
 - Debian 9+ /Ubuntu 22+ Linux
-
-#
