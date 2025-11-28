@@ -38,3 +38,7 @@ __Tips:__
 - Docker service installed
 - RedHat/CentOS/Rocky/Alma Linux 8/9
 - Debian 9+ /Ubuntu 22+ Linux
+
+__Tips:__
+- Inside of tools/ you cand find the scripts to setup docker
+- Podman can be used
