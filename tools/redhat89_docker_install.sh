@@ -4,5 +4,6 @@ echo "This script will try to install docker and docker compose for RedHat based
 echo "Press enter to continue."
 read pressenter
 
-sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
-sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo dnf -y config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo systemctl enable --now docker
