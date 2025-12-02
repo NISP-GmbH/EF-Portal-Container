@@ -13,7 +13,7 @@ This is the easiest way to start EF Portal just providing the license file.
 ```bash
 docker compose up -d
 ```
-4. Open the `https://yourip_or_domain/` and do the login with `efadmin` user and the new password or efadmin33 default password
+4. Open the `https://yourip_or_domain/` and do the login with `efadmin` user and the new password or `efadmin33 default password`
 
 __Tips:__
 - You can open `https://yourip_or_domain/start` page to get useful EF Portal information
