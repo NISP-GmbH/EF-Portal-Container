@@ -16,7 +16,7 @@ docker compose up -d
 4. Open the `https://yourip_or_domain/` and do the login with `efadmin` user and the new password or efadmin33 default password
 
 __Tips:__
-- You can open /start page to get useful EF Portal information
+- You can open https://yourip_or_domain/start page to get useful EF Portal information
 - If you get the Nginx 502 message, EF Portal is still starting or you did not provide valid license.ef
 
 # Architecture
