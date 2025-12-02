@@ -2,7 +2,7 @@ services:
   enginframe:
     container_name: efportal-nisp
     hostname: efportal
-    image: efportal-nisp:latest
+    image: nispgmbh/efportal:latest
     ports:
       - "80:80"
       - "443:443"
