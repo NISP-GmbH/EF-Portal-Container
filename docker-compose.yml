@@ -8,10 +8,6 @@ services:
       - "443:443"
     restart: 'always'
     environment:
-      - LSF_SERVICE_ENABLED=false
-      - SSSD_SERVICE_ENABLED=false
-      - SLURM_SERVICE_ENABLED=false
-      - DCVSM_SERVICE_ENABLED=true
       - EFP_PORT=8443
       - EFP_ADMIN_PASSWORD=efadmin33
       - EF_DB_HOST=mysql
