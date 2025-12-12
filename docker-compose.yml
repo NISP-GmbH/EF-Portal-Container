@@ -9,7 +9,7 @@ services:
     restart: 'unless-stopped'
     environment:
       - EFP_PORT=8443
-      - EFP_ADMIN_PASSWORD=efadmin33
+      - EFP_ADMIN_PASSWORD=EFP_by_NISP_2025
       - EF_DB_HOST=mysql
       - EF_DB_NAME=EnginFrameDB
       - EF_DB_USER=efportal
@@ -25,6 +25,7 @@ services:
       - enginframe_backup:/enginframe_backup
       - dcvsm_broker_lib:/var/lib/dcvsmbroker/
       - dcvsm_cli:/opt/dcv-session-manager-cli/conf/
+      - dcvm_installers:/opt/dcvm-installers
       - type: bind
         source: ./license.ef
         target: /opt/container-tools/license.ef
@@ -53,5 +54,6 @@ volumes:
   enginframe_backup:
   dcvsm_broker_lib:
   dcvsm_cli:
+  dcvm_installers:
   mysql_data:
   mysql_logs:
