@@ -8,7 +8,6 @@ services:
       - "443:443"
     restart: 'unless-stopped'
     environment:
-      - EFP_PORT=8443
       - EFP_ADMIN_PASSWORD=EFP_by_NISP_2025
       - EF_DB_HOST=mysql
       - EF_DB_NAME=EnginFrameDB
