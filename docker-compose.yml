@@ -10,6 +10,7 @@ services:
     environment:
       - EFP_ADMIN_PASSWORD=EFP_by_NISP_2025
       - EF_DB_HOST=mysql
+      - EF_DB_PORT=33306
       - EF_DB_NAME=EnginFrameDB
       - EF_DB_USER=efportal
       - EF_DB_PASSWORD=nisp@demo#@##@@
@@ -38,7 +39,8 @@ services:
       MYSQL_USER: efportal
       MYSQL_PASSWORD: nisp@demo#@##@@
       MYSQL_ROOT_PASSWORD: R@nd0m#P@ssw0rd321#Secure!
-    command: --character-set-server=latin1
+      MYSQL_TCP_PORT: 33306
+    command: --character-set-server=latin1 --port=33306
     volumes:
       - mysql_data:/var/lib/mysql
       - mysql_logs:/var/log/mysql
