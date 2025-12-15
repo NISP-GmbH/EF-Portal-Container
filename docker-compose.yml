@@ -6,7 +6,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8448:8448"
+      - "8445:8445"
     restart: 'unless-stopped'
     environment:
       - EFP_ADMIN_PASSWORD=EFP_by_NISP_2025
