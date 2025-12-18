@@ -8,6 +8,9 @@ services:
       - "443:443"
       - "8445:8445"
     restart: 'unless-stopped'
+    init: true
+    stop_signal: SIGTERM
+    stop_grace_period: 30s
     environment:
       - EFP_ADMIN_PASSWORD=EFP_by_NISP_2025
       - EF_DB_HOST=mysql
