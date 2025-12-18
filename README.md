@@ -26,6 +26,15 @@ __Tips:__
 - DCV Session Manager Broker (latest version)
 - DCV Session Manager CLI (latest version)
 - SLURM 24.05.2 using Munge
+- Mysql 8
+
+# Features of /start page
+- EF Portal DCV Session Manager automatic installers for Windows (GUI or Powershell) and Linux (bash script)
+- Most common EF Portal configuration without to open the command line
+- Authenticator authorities: PAM, Active Directory and LDAP. AD and LDAP with a Wizard to validate the configuration.
+- All modified configuration will create a backup file that can be recovered or checked about what changed (diff)
+- Restart services in a safe way
+- Upload your own certificate
 
 # Requirements
 
@@ -37,7 +46,7 @@ __Tips:__
 ## Software
 - Docker service installed
 - RedHat/CentOS/Rocky/Alma Linux 8/9
-- Debian 9+ /Ubuntu 22+ Linux
+- Debian 9+ / Ubuntu 22+ Linux
 
 __Tips:__
 - Inside of tools/ you cand find the scripts to setup docker
