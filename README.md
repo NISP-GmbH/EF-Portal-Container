@@ -6,6 +6,7 @@ This is the easiest way to start EF Portal just providing the license file.
 
 # Presentation
 
+(Get EF Portal and DCV running is 2 minutes)[https://www.youtube.com/watch?v=YGNOJyUw3k8]
 
 https://github.com/user-attachments/assets/d128e06b-006b-461a-b663-1e8d93c55edf
 
