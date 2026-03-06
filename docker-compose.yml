@@ -30,6 +30,7 @@ services:
       - dcvsm_broker_lib:/var/lib/dcvsmbroker/
       - dcvsm_cli:/opt/dcv-session-manager-cli/conf/
       - dcvsm_installers:/opt/dcvsm-installers
+      - customizations:/opt/customizations
       - type: bind
         source: ./license.ef
         target: /opt/nisp/enginframe/license/license.ef
@@ -59,6 +60,7 @@ volumes:
   enginframe_backup:
   dcvsm_broker_lib:
   dcvsm_cli:
-  dcvsm_installers:
   mysql_data:
   mysql_logs:
+  customizations:
+  dcvsm_installers:
