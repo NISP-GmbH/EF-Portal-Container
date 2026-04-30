@@ -56,4 +56,3 @@ __Tips:__
 
 __Tips:__
 - Inside of tools/ you cand find the scripts to setup docker
-- Podman can be used
